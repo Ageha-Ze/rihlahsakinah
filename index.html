@@ -18,10 +18,11 @@
   <meta property="og:title" content="Rihlah Sakinah – Travel Umroh Resmi Berizin Kemenag">
   <meta property="og:description"
     content="✅ Izin PPIU Kemenag resmi. Paket umroh reguler, ramadhan & plus Turki. Hotel ring 1, muthawif bersertifikat. Mulai Rp 26 Juta.">
-  <meta property="og:image" content="https://rihlahsakinah.vercel.app/rsbanner2.png">
-  <meta property="og:image:secure_url" content="https://rihlahsakinah.vercel.app/rsbanner2.png">
-  <meta property="og:image:type" content="image/png">
-
+  <meta property="og:image" content="https://rihlahsakinah.vercel.app/rsbanner2.jpg">
+  <meta property="og:image:secure_url" content="https://rihlahsakinah.vercel.app/rsbanner2.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Rihlah Sakinah – Travel Umroh & Wisata Muslim Resmi">
 
   <!-- Twitter Card -->
@@ -29,7 +30,7 @@
   <meta name="twitter:title" content="Rihlah Sakinah – Travel Umroh Resmi Berizin Kemenag">
   <meta name="twitter:description"
     content="✅ Izin PPIU Kemenag resmi. Paket umroh reguler, ramadhan & plus Turki. Hotel ring 1, muthawif bersertifikat. Mulai Rp 26 Juta.">
-  <meta name="twitter:image" content="https://rihlahsakinah.vercel.app/rsbanner2.png">
+  <meta name="twitter:image" content="https://rihlahsakinah.vercel.app/rsbanner2.jpg">
   <meta name="twitter:image:alt" content="Rihlah Sakinah – Travel Umroh & Wisata Muslim">
 
   <meta name="theme-color" content="#B8960C">
@@ -1572,6 +1573,29 @@
         display: block
       }
 
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(10, 8, 5, 0.98);
+        backdrop-filter: blur(12px);
+        height: auto;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+        z-index: 999;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(212, 175, 55, .15);
+      }
+
+      .nav-links.open a {
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid rgba(212, 175, 55, .08);
+        justify-content: flex-start;
+      }
+
       .section-wrap {
         padding: 0 1.25rem
       }
@@ -1812,7 +1836,7 @@
         transform: none
       }
     }
-  
+
     /* ─── SPLASH SCREEN ─── */
     #splash {
       position: fixed;
@@ -1826,29 +1850,42 @@
       gap: 28px;
       transition: opacity .7s ease, visibility .7s ease;
     }
+
     #splash.hidden {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
     }
+
     .splash-logo {
       width: min(200px, 52vw);
       filter:
-        drop-shadow(0 0 24px rgba(184,150,12,.5))
-        drop-shadow(0 0 60px rgba(184,150,12,.2));
+        drop-shadow(0 0 24px rgba(184, 150, 12, .5)) drop-shadow(0 0 60px rgba(184, 150, 12, .2));
       animation: splashPulse 1.8s ease-in-out infinite;
     }
+
     @keyframes splashPulse {
-      0%,100% { transform: scale(1);   filter: drop-shadow(0 0 20px rgba(184,150,12,.4)); }
-      50%      { transform: scale(1.05); filter: drop-shadow(0 0 40px rgba(184,150,12,.7)); }
+
+      0%,
+      100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 20px rgba(184, 150, 12, .4));
+      }
+
+      50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 40px rgba(184, 150, 12, .7));
+      }
     }
+
     .splash-bar-track {
       width: min(180px, 46vw);
       height: 2px;
-      background: rgba(184,150,12,.12);
+      background: rgba(184, 150, 12, .12);
       overflow: hidden;
       border-radius: 2px;
     }
+
     .splash-bar-fill {
       height: 100%;
       width: 0;
@@ -1856,18 +1893,32 @@
       animation: splashFill 2.2s ease forwards;
       border-radius: 2px;
     }
-    @keyframes splashFill { to { width: 100%; } }
+
+    @keyframes splashFill {
+      to {
+        width: 100%;
+      }
+    }
+
     .splash-label {
       font-family: 'DM Sans', sans-serif;
       font-size: .65rem;
       letter-spacing: .45em;
       text-transform: uppercase;
-      color: rgba(212,175,55,.45);
+      color: rgba(212, 175, 55, .45);
       animation: splashBlink 1.2s ease infinite;
     }
+
     @keyframes splashBlink {
-      0%,100% { opacity: .3; }
-      50%      { opacity: 1; }
+
+      0%,
+      100% {
+        opacity: .3;
+      }
+
+      50% {
+        opacity: 1;
+      }
     }
   </style>
 </head>
@@ -2449,8 +2500,8 @@
 
   <script>
     /* ── Splash ── */
-    window.addEventListener('load', function() {
-      setTimeout(function() {
+    window.addEventListener('load', function () {
+      setTimeout(function () {
         document.getElementById('splash').classList.add('hidden');
       }, 2500);
     });
@@ -2495,14 +2546,14 @@
       hamburger.setAttribute('aria-expanded', menuOpen);
       hamburger.textContent = menuOpen ? '✕' : '☰';
       if (menuOpen) {
-        Object.assign(navLinksEl.style, { display: 'flex', flexDirection: 'column', position: 'absolute', top: '60px', left: '0', right: '0', background: 'rgba(10,8,5,.98)', borderBottom: '1px solid rgba(212,175,55,.15)', padding: '1rem 1.5rem', gap: '.25rem', boxShadow: '0 8px 24px rgba(0,0,0,.4)', zIndex: '300' });
+        navLinksEl.classList.add('open');
       } else {
-        navLinksEl.style.display = '';
+        navLinksEl.classList.remove('open');
       }
     });
     // Close menu on link click
     navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      menuOpen = false; hamburger.setAttribute('aria-expanded', false); hamburger.textContent = '☰'; navLinksEl.style.display = '';
+      menuOpen = false; hamburger.setAttribute('aria-expanded', false); hamburger.textContent = '☰'; navLinksEl.classList.remove('open');
     }));
   </script>
 
